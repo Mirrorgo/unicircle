@@ -2,7 +2,7 @@ import { Tab, Tabs } from "@mui/material";
 import { useRouter } from "next/navigation";
 import React, { SyntheticEvent, useState } from "react";
 
-const tabs = ["hot", "posts", "courses", "activities"];
+const tabs = ["hot", "posts", "subjects", "activities"];
 
 function TabBar() {
   const [tabNum, setTabNum] = useState<number>(0);
