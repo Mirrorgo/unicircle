@@ -14,9 +14,7 @@ export default function Bottom() {
   const [value, setValue] = useState("/home");
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
-    console.log("new", newValue);
     router.push(`/${newValue}`);
-    // router.push(tabs[newValue]);
   };
   return (
     <Paper
