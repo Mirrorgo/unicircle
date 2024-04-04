@@ -7,11 +7,16 @@ import HomeIcon from "@mui/icons-material/Home";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import MessageIcon from "@mui/icons-material/Message";
 import PersonIcon from "@mui/icons-material/Person";
+import { useRouter } from "next/navigation";
 
 export default function Bottom() {
-  const [value, setValue] = useState("recents");
+  const router = useRouter();
+  const [value, setValue] = useState("/home");
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
+    console.log("new", newValue);
+    router.push(`/${newValue}`);
+    // router.push(tabs[newValue]);
   };
   return (
     <Paper
