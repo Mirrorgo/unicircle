@@ -1,14 +1,12 @@
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import FolderIcon from "@mui/icons-material/Folder";
-import RestoreIcon from "@mui/icons-material/Restore";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { useState } from "react";
 import styles from "./index.module.css";
 import { Paper } from "@mui/material";
-import Icon from "@mdi/react";
-import { mdiAbjadArabic } from "@mdi/js";
+import HomeIcon from "@mui/icons-material/Home";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import MessageIcon from "@mui/icons-material/Message";
+import PersonIcon from "@mui/icons-material/Person";
 
 export default function Bottom() {
   const [value, setValue] = useState("recents");
@@ -21,23 +19,19 @@ export default function Bottom() {
       elevation={3}
     >
       <BottomNavigation value={value} onChange={handleChange}>
-        <BottomNavigationAction
-          label="Home"
-          value="home"
-          icon={<RestoreIcon />}
-        />
+        <BottomNavigationAction label="Home" value="home" icon={<HomeIcon />} />
         <BottomNavigationAction
           label="Follow"
           value="follow"
-          icon={<LocationOnIcon />}
+          icon={<BookmarkIcon />}
         />
         <BottomNavigationAction
           label="Message"
           value="message"
-          icon={<Icon path={mdiAbjadArabic} size={1} />}
+          icon={<MessageIcon />}
         />
 
-        <BottomNavigationAction label="You" value="you" icon={<FolderIcon />} />
+        <BottomNavigationAction label="You" value="you" icon={<PersonIcon />} />
       </BottomNavigation>
     </Paper>
   );
