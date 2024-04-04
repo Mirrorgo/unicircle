@@ -7,6 +7,8 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { useState } from "react";
 import styles from "./index.module.css";
 import { Paper } from "@mui/material";
+import Icon from "@mdi/react";
+import { mdiAbjadArabic } from "@mdi/js";
 
 export default function Bottom() {
   const [value, setValue] = useState("recents");
@@ -32,7 +34,7 @@ export default function Bottom() {
         <BottomNavigationAction
           label="Message"
           value="message"
-          icon={<FavoriteIcon />}
+          icon={<Icon path={mdiAbjadArabic} size={1} />}
         />
 
         <BottomNavigationAction label="You" value="you" icon={<FolderIcon />} />
