@@ -1,4 +1,5 @@
-// types.ts
+import axios from "axios";
+import { requestUrl } from "@/service/requestUtils";
 
 interface Author {
     name: string;
@@ -30,6 +31,26 @@ interface Post {
     images: string[];
     content: PostContentData;
     comments: Comment[];
+}
+
+interface BaseResponse<T> {
+  code: number;
+  msg: string;
+  data: T;
+}
+
+export async function queryPostsList(params: object) {
+  return axios.get<BaseResponse<Post[]>>(
+    requestUrl("/posts/list", true),
+    {
+      params,
+    }
+  );
+}
+export async function queryPostDetail(postId: string) {
+  return axios.get<BaseResponse<Post>>(
+    requestUrl(`/posts/${postId}`, true) // Adjust the URL path according to your actual API endpoint
+  );
 }
   
 export type { Post, Comment, PostContentData };

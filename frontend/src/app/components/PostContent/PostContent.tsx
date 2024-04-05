@@ -1,6 +1,6 @@
 import React from 'react';
 import { CardContent, Typography } from '@mui/material';
-import { PostContentData } from '@/app/home/posts/types';
+import { PostContentData } from '@/service/posts';
 
 interface PostContentProps {
   content: PostContentData; // 使用定义的类型
