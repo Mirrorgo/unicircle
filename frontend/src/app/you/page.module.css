@@ -1,0 +1,22 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px; 
+    margin: auto; 
+  }
+  
+  .avatar {
+    flex: 4;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #FFB6C1, #F08080);
+  }
+  
+  .info {
+    flex: 6;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    padding: 20px;
+  }
