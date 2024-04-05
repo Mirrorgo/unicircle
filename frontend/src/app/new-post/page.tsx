@@ -15,13 +15,12 @@ import { TextField, Box } from '@mui/material';
 import { useRouter } from 'next/navigation'
 import AutorenewIcon from '@mui/icons-material/Autorenew';
 import IconButton from '@mui/material/IconButton';
+import { createPost, PostItem } from '@/service/post'; 
 interface LocationState {
   lat: number;
   lng: number;
 }
 const Post: React.FC = () => {
-
-
   const [postType, setPostType] = useState<string>('Item');
 
   const handlePostTypeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,7 +37,7 @@ const Post: React.FC = () => {
   };
   const [buttonText, setButtonText] = useState('📍Get Location');
   const [location, setLocation] = useState<LocationState | null>(null);
-  const [cityName, setCityName] = useState<string | null>(null);
+  const [cityName, setCityName] = useState<string>('');
   const [price, setPrice] = useState('');
   const [address, setAddress] = useState('');
   const [text, setText] = useState('');
@@ -55,7 +54,25 @@ const Post: React.FC = () => {
   const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAddress(event.target.value);
   };
-
+  const handleSubmit = async () => {
+    const postData = {
+      userId: 'user1', 
+      description: text,
+      location: cityName,
+      label: postType,
+      price: price,
+      address: address,
+    };
+  
+    try {
+      const response = await createPost(postData);
+      console.log(postData);
+      console.log(response.data); 
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+  
   const handleGetLocation = async () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(async (position) => {
@@ -101,7 +118,7 @@ const Post: React.FC = () => {
             <AutorenewIcon />
           </IconButton>
         </div>
-        <Button variant="contained" color="success">
+        <Button variant="contained" color="success" onClick={handleSubmit}>
           Post
         </Button>
       </header>
