@@ -4,7 +4,10 @@
     height: 100vh; 
     
   }
-  
+  .Left-items {
+    display: flex;
+    align-items: center; 
+  }
   .Post-header {
     display: flex;
     justify-content: space-between;
@@ -31,12 +34,14 @@
     color: black;
     font-weight: bold;
   }
-  .main {
-    flex: 5; 
-    background-color: lightcoral; 
+  .Post-main {
+    background-color: #ededed;
+    display: flex;
+    justify-content: center;
+    flex: 6;
   }
   
   .footer {
-    flex: 2; 
-    background-color: lightgreen;
+    flex:4; 
+    background-color: #ededed;
   }
