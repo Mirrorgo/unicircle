@@ -34,7 +34,7 @@ function Subjects() {
         return (
           <div
             key={cur.subjectId}
-            onClick={() => router.push(`/home/subjects/${cur.subjectId}`)}
+            onClick={() => router.push(`/home/subjects/${cur.subjectNumber}`)}
           >
             {/* <Link href={`/home/subjects/${cur.subjectId}`}> */}
             <SubjectCard content={cur} />
