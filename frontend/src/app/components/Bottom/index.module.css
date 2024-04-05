@@ -1,5 +1,14 @@
-
-.bottom{
+.bottom {
 	display: flex;
 	justify-content: center;
+}
+
+
+.roundButton {
+	position: relative;
+	border-radius: 50%;
+	border: solid 10px white;
+	width: 80px;
+	height: 80px;
+	top: -30px;
 }
