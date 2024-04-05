@@ -1,0 +1,55 @@
+.Post {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  /* Use the full height of the viewport */
+}
+
+.Post-header {
+  display: flex;
+  justify-content: space-between;
+  /* This spreads the child elements apart */
+  align-items: center;
+  /* Vertically centers the child elements */
+  padding: 10px 15px;
+  background-color: #ededed;
+}
+
+.Left-items {
+  display: flex;
+  align-items: center;
+  /* This ensures the button and label are aligned properly */
+}
+
+.Close-button {
+  margin-right: 10px;
+  /* Adds some space between the close button and the label */
+  background: none;
+  border: none;
+  font-size: 36px;
+  /* Large text size for clarity */
+  cursor: pointer;
+  color: rgb(136, 135, 135);
+}
+
+.Post-label {
+  font-size: 18px;
+  /* Adjust as needed */
+  color: black;
+  font-weight: bold;
+}
+
+.Post-main {
+  background-color: #ededed;
+  display: flex;
+  justify-content: center;
+  flex: 6;
+}
+
+.Post-footer {
+  background-color: #ededed;
+  flex: 3;
+  display: flex;
+  justify-content: center;
+
+}
