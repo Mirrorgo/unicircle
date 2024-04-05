@@ -7,9 +7,6 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useEffect } from "react";
-/**
- * subject
- */
 
 function SubjectCard({ content }: { content: Subject }) {
   useEffect(() => {
@@ -18,33 +15,51 @@ function SubjectCard({ content }: { content: Subject }) {
   }, []);
 
   return (
-    <>
-      <Card sx={{ width: 200, height: 200 }}>
-        <CardContent>
-          <Typography
-            sx={{
-              fontSize: 14,
-              color: "text.secondary",
-              display: "flex",
-              justifyContent: "space-between", // Align items at both ends
+    <Card
+      sx={{
+        width: 200,
+        height: 200,
+        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+        borderRadius: 3,
+      }}
+    >
+      <CardContent>
+        <Typography
+          variant="h6"
+          gutterBottom
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <span
+            style={{
+              color: "#3f51b5",
+              fontWeight: "bold",
             }}
-            gutterBottom
           >
-            <span>{content.subjectNumber}</span>
-            <span>{`🔥${content.heat}`}</span>
-          </Typography>
-          <Typography variant="h5" component="div">
-            {content.subjectName}
-          </Typography>
-          <Typography variant="body2">
-            {content.subjectDescription}
-            <br />
-            {content.major}
-          </Typography>
-        </CardContent>
-        <CardActions></CardActions>
-      </Card>
-    </>
+            {content.subjectNumber}
+          </span>
+          <span
+            style={{
+              color: "#f50057",
+              fontWeight: "bold",
+            }}
+          >
+            {`🔥${content.heat}`}
+          </span>
+        </Typography>
+        <Typography variant="h5" component="div" sx={{ marginBottom: 1 }}>
+          {content.subjectName}
+        </Typography>
+        <Typography variant="body1" sx={{ marginBottom: 2 }}>
+          {content.subjectDescription}
+        </Typography>
+        <Typography variant="body2" sx={{ color: "#333333" }}>
+          {content.major}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 }
 
