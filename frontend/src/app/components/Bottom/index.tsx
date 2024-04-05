@@ -32,9 +32,6 @@ export default function Bottom() {
         <Button className={styles.roundButton} variant="contained">
           <AddIcon />
         </Button>
-        {/* <div className={styles.roundButtonDiv}>
-          <AddIcon />
-        </div> */}
         <BottomNavigationAction
           label="Message"
           value="message"
