@@ -29,12 +29,9 @@ export default function Bottom() {
           value="follow"
           icon={<BookmarkIcon />}
         />
-        <Button className={styles.roundButton} variant="contained">
+        <Button className={styles.roundButton} variant="contained" onClick={() => router.push('/new-post', { scroll: false })}>
           <AddIcon />
         </Button>
-        {/* <div className={styles.roundButtonDiv}>
-          <AddIcon />
-        </div> */}
         <BottomNavigationAction
           label="Message"
           value="message"

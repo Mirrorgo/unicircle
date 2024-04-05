@@ -17,7 +17,6 @@ interface LocationState {
     lat: number;
     lng: number;
   }
-  const router = useRouter()
 const Post: React.FC = () => {
 
 
@@ -28,9 +27,11 @@ const Post: React.FC = () => {
     console.log(postType)
   };
     
+  const router = useRouter(); 
 
-    const handleCloseClick = () => {
-    };
+  const handleCloseClick = () => {
+      router.push('/home/hot'); 
+  };
     const handleFileChange = ()=>{
     };
     const [buttonText, setButtonText] = useState('📍Get Location');
@@ -38,6 +39,12 @@ const Post: React.FC = () => {
     const [cityName, setCityName] = useState<string | null>(null);
     const [price, setPrice] = useState('');
     const [address, setAddress] = useState('');
+    const [text, setText] = useState('');
+    const defaultText = "Describe your tasks/items, add any details, source...";
+  
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setText(event.target.value);
+    };
   
     const handlePriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setPrice(event.target.value);
@@ -90,9 +97,28 @@ const Post: React.FC = () => {
       <main className={styles['Post-main']}>
       <Card sx={{ width: 410, height: 500, mx: "auto", borderRadius: '16px', position: 'relative' }}>
       <CardContent sx={{ height: '100%', position: 'relative' }}>
-        <Typography variant="body2" color="text.secondary" sx={{ fontSize: '1.25rem' }}>
-          Describe your tasks/items, add any details, source...
-        </Typography>
+      <TextField
+          fullWidth
+          multiline
+          variant="outlined"
+          placeholder={defaultText}
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          sx={{
+            fontSize: '1.25rem',
+            '& .MuiOutlinedInput-root': {
+              '& fieldset': {
+                border: 'none', 
+              },
+              '&:hover fieldset': {
+                border: 'none',
+              },
+              '&.Mui-focused fieldset': {
+                border: 'none', 
+              }
+            }
+          }}
+        />
         <div style={{ position: 'absolute', bottom: 140, left: 0, padding: '16px' }}>
         <Card sx={{ 
       width: 180, 
