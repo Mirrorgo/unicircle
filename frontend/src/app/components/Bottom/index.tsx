@@ -2,12 +2,13 @@ import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import { useState } from "react";
 import styles from "./index.module.css";
-import { Paper } from "@mui/material";
+import { Button, Paper } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import MessageIcon from "@mui/icons-material/Message";
 import PersonIcon from "@mui/icons-material/Person";
 import { useRouter } from "next/navigation";
+import AddIcon from "@mui/icons-material/Add";
 
 export default function Bottom() {
   const router = useRouter();
@@ -28,12 +29,17 @@ export default function Bottom() {
           value="follow"
           icon={<BookmarkIcon />}
         />
+        <Button className={styles.roundButton} variant="contained">
+          <AddIcon />
+        </Button>
+        {/* <div className={styles.roundButtonDiv}>
+          <AddIcon />
+        </div> */}
         <BottomNavigationAction
           label="Message"
           value="message"
           icon={<MessageIcon />}
         />
-
         <BottomNavigationAction label="You" value="you" icon={<PersonIcon />} />
       </BottomNavigation>
     </Paper>
