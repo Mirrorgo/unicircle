@@ -188,9 +188,9 @@ const Posts = () => {
 
   return (
     <Container>
-      <Grid container spacing={4}>
+      <Grid container spacing={2}>
         {posts.map((post, index) => (
-          <Grid item key={post.id} xs={12} sm={6}>
+          <Grid item key={post.id} xs={6} sm={6}>
             <PostCard post={post} />
           </Grid>
         ))}
@@ -198,16 +198,6 @@ const Posts = () => {
       </Grid>
     </Container>
   );
-  // return (
-  //   <Grid container spacing={4}>
-  //     {posts.map((post, index) => (
-  //       <Grid item key={post.id} xs={12} sm={6}>
-  //         <PostCard post={post} />
-  //       </Grid>
-  //     ))}
-  //     <div ref={observerRef} style={{ width: '100%', height: '20px' }}></div>
-  //   </Grid>
-  // );
 }
 
 export default Posts;
