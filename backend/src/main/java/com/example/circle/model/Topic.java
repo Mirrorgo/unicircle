@@ -1,45 +1,49 @@
 package com.example.circle.model;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Topic {
-    private int topicId;
-    private int userId;
+    private String topicId;
+    private String userId;
     private String subjectNumber;
     private String title;
     private String body;
     private String imageUrl;
-    private String tag;
+    private String typeId;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss.SSS", timezone = "UTC")
     private Date createdAt;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss.SSS", timezone = "UTC")
     private Date updatedAt;
 
-    public Topic(int topicId, int userId, String subjectNumber, String title, String body, String imageUrl, String tag, Date createdAt, Date updatedAt) {
+    public Topic(String topicId, String userId, String subjectNumber, String title, String body, String imageUrl, String typeId, Date createdAt, Date updatedAt) {
         this.topicId = topicId;
         this.userId = userId;
         this.subjectNumber = subjectNumber;
         this.title = title;
         this.body = body;
         this.imageUrl = imageUrl;
-        this.tag = tag;
+        this.typeId = typeId;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
     // Getter和Setter方法
-    public int getTopicId() {
+    public String getTopicId() {
         return topicId;
     }
 
-    public void setTopicId(int topicId) {
+    public void setTopicId(String topicId) {
         this.topicId = topicId;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -67,12 +71,12 @@ public class Topic {
         this.imageUrl = imageUrl;
     }
 
-    public String getTag() {
-        return tag;
+    public String getTypeId() {
+        return typeId;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
+    public void setTypeId(String typeId) {
+        this.typeId = typeId;
     }
 
     public Date getCreatedAt() {

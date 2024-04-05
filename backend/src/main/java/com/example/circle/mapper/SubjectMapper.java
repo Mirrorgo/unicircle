@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface SubjectMapper {
     @Select("SELECT * FROM subject WHERE subject_id = #{subjectId}")
-    Subject getSubjectById(@Param("subjectId") int subjectId);
+    Subject getSubjectById(@Param("subjectId") String subjectId);
 
     @Insert("INSERT INTO subject(subject_name, subject_description, created_at, subject_number) VALUES(#{subjectName}, #{subjectDescription}, #{createdAt}, #{subjectNumber})")
     @Options(useGeneratedKeys = true, keyProperty = "subjectId")
@@ -19,8 +19,10 @@ public interface SubjectMapper {
     int updateSubject(Subject subject);
 
     @Delete("DELETE FROM subject WHERE subject_id = #{subjectId}")
-    int deleteSubject(@Param("subjectId") int subjectId);
-
+    String deleteSubject(@Param("subjectId") String subjectId);
+    @Results({
+            @Result(property = "subjectNumber", column = "subject_number", javaType = String.class)
+    })
     @Select("SELECT * FROM subject")
     List<Subject> getAllSubjects();
 

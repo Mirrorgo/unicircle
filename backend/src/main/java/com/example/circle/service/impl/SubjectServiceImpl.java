@@ -23,7 +23,7 @@ public class SubjectServiceImpl implements SubjectService {
 
     @Override
     @Transactional(readOnly = true)
-    public Result<Subject> getSubjectById(int subjectId) {
+    public Result<Subject> getSubjectById(String subjectId) {
         try {
             Subject subject = subjectMapper.getSubjectById(subjectId);
             if (subject == null) {
@@ -62,10 +62,10 @@ public class SubjectServiceImpl implements SubjectService {
 
     @Override
     @Transactional
-    public Result<Void> deleteSubject(int subjectId) {
+    public Result<Void> deleteSubject(String subjectId) {
         try {
-            int deleted = subjectMapper.deleteSubject(subjectId);
-            if (deleted == 0) {
+            String deleted = subjectMapper.deleteSubject(subjectId);
+            if (deleted == null) {
                 return ResultUtil.error("No subject found with ID " + subjectId);
             }
             return ResultUtil.success();

@@ -20,8 +20,8 @@ public class TopicController {
         this.topicService = topicService;
     }
 
-    @GetMapping("/getAllTopicsBySubjectNumber/{subjectNumber}")
-    public ResponseEntity<Result<List<Topic>>> getAllTopicsBySubjectNumber(@PathVariable String subjectNumber) {
+    @GetMapping("/list")
+    public ResponseEntity<Result<List<Topic>>> getAllTopicsBySubjectNumber(@RequestParam String subjectNumber) {
         Result<List<Topic>> result = topicService.getAllTopicsBySubjectNumber(subjectNumber);
         return ResponseEntity.ok(result);
     }
