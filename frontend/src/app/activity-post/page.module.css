@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; 
+    
+  }
+  
+  .Post-header {
+    display: flex;
+    justify-content: space-between;
+    /* This spreads the child elements apart */
+    align-items: center;
+    /* Vertically centers the child elements */
+    padding: 10px 15px;
+    background-color: #ededed;
+    
+  }
+  .Close-button {
+    margin-right: 10px;
+    /* Adds some space between the close button and the label */
+    background: none;
+    border: none;
+    font-size: 36px;
+    /* Large text size for clarity */
+    cursor: pointer;
+    color: rgb(136, 135, 135);
+  }
+  
+  .Post-label {
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+  }
+  .main {
+    flex: 5; 
+    background-color: lightcoral; 
+  }
+  
+  .footer {
+    flex: 2; 
+    background-color: lightgreen;
+  }
