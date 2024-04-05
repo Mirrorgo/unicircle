@@ -1,7 +1,7 @@
 import axios from "axios";
 import { requestUrl } from "./requestUtils";
 
-interface BaseResponse<T> {
+export interface BaseResponse<T> {
   code: number;
   msg: string;
   data: T;
