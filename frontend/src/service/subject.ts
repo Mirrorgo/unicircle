@@ -51,7 +51,7 @@ export async function queryTopicList(params: object) {
 
 export async function queryTopic(params: object) {
   return axios.get<BaseResponse<Topic>>(
-    requestUrl("/subject/topics/get", true),
+    requestUrl("/subjects/topics/get", true),
     {
       params,
     }
