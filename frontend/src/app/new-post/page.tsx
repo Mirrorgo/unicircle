@@ -56,7 +56,7 @@ const Post: React.FC = () => {
   };
   const handleSubmit = async () => {
     const postData = {
-      userId: 'user1', 
+      userId: '2', 
       description: text,
       location: cityName,
       label: postType,
