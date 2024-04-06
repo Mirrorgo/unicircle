@@ -17,7 +17,7 @@ export interface PostItem {
   
   export async function createPost(postData: PostItem) {
     return axios.post<BaseResponse<PostItem[]>>(
-        requestUrl("/posts/newpost", true),
+        requestUrl("/posts/newpost", false),
         {
           postData,
         }
