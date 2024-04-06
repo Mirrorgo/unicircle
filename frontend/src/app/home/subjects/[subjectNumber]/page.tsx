@@ -97,9 +97,9 @@ function Subject({ params }: { params: { subjectNumber: string } }) {
         }}
       >
         {topics.map((cur, idx) => {
-          console.log("topicId", cur.topicId);
           return (
             <div
+              key={cur.topicId}
               onClick={() =>
                 router.push(
                   `/home/subjects/${params.subjectNumber}/${cur.topicId}`
