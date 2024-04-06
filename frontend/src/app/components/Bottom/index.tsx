@@ -37,7 +37,7 @@ export default function Bottom() {
           value="message"
           icon={<MessageIcon />}
         />
-        <BottomNavigationAction label="You" value="you" icon={<PersonIcon />} />
+        <BottomNavigationAction onClick={() => router.push('/you', { scroll: false })} label="Profile" value="you" icon={<PersonIcon />} />
       </BottomNavigation>
     </Paper>
   );
