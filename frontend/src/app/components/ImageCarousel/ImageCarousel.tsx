@@ -19,7 +19,7 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
   };
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, my: 4 }}>
       <IconButton onClick={handlePrev} aria-label="Previous image">
         <ArrowBackIosNewIcon />
       </IconButton>

@@ -26,7 +26,7 @@ interface Comment {
 }
   
 interface Post {
-    id: number;
+    id: string;
     author: Author;
     images: string[];
     content: PostContentData;
@@ -47,9 +47,12 @@ export async function queryPostsList(params: object) {
     }
   );
 }
-export async function queryPostDetail(postId: string) {
+export async function queryPostDetail(params: object) {
   return axios.get<BaseResponse<Post>>(
-    requestUrl(`/posts/${postId}`, true) // Adjust the URL path according to your actual API endpoint
+    requestUrl(`/posts/get`, true),
+    {
+      params,
+    } // Adjust the URL path according to your actual API endpoint
   );
 }
   

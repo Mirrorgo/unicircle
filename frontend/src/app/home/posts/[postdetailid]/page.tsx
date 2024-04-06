@@ -6,34 +6,27 @@ import { ImageCarousel } from "../../../components/ImageCarousel/ImageCarousel";
 import { CommentSection } from "../../../components/CommentSection/CommentSection";
 import PostContent from "@/app/components/PostContent/PostContent";
 import { useSearchParams } from "next/navigation";
-import { queryPostDetail, queryPostsList } from "@/service/posts";
+import { Post, queryPostDetail, queryPostsList } from "@/service/posts";
 
-const PostDetailPage: React.FC = () => {
+function PostDetailPage({ params }: { params: { postId: string } }){
   const [post, setPost] = useState<any>(null);
-  const searchParams = useSearchParams();
-  const postId = searchParams.get("id");
 
   useEffect(() => {
-    // 确保 postId 不是 undefined 或数组
-    if (typeof postId === "string") {
-      // 使用 postId 请求 post 的详细信息
-      queryPostDetail(postId)
-        .then((response) => {
-          // 假设后端正确返回数据
-          setPost(response.data.data);
-        })
-        .catch((error) => {
-          console.error("获取帖子详情出错:", error);
-        });
+    async function getPost() {
+      const res = await queryPostDetail({ postId: params.postId });
+      const newPost: Post = res.data.data;
+      setPost(newPost);
     }
-  }, [postId]);
+    getPost();
+    return () => {};
+  }, [params.postId]);
 
   if (!post) {
     return <div>Loading...</div>;
   }
 
   return (
-    <Container>
+    <Container maxWidth="md" sx={{ my: 4 }}>
       <PostHeader
         name={post.author.name}
         avatar={post.author.avatar}

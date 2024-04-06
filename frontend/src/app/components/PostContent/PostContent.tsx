@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardContent, Typography } from '@mui/material';
+import { CardContent, Typography, Chip } from '@mui/material';
 import { PostContentData } from '@/service/posts';
 
 interface PostContentProps {
@@ -8,26 +8,31 @@ interface PostContentProps {
 
 const PostContent: React.FC<PostContentProps> = ({ content }) => {
   return (
-    <CardContent>
-      <Typography gutterBottom variant="h5" component="h2" style={{ fontWeight: 'bold' }}>
+    <CardContent sx={{ padding: 2 }}>
+      <Typography gutterBottom variant="h5" component="h2" sx={{ fontWeight: 'bold' }}>
         {content.title}
       </Typography>
       <Typography variant="body1" color="textSecondary" component="p">
         {content.description}
       </Typography>
-      <Typography variant="body2" style={{ fontWeight: 'bold', marginTop: '8px' }}>
-        Label：{content.tag}
+      <Typography variant="body2" color="textSecondary" sx={{ marginTop: 2 }}>
+        Location: {content.location}
       </Typography>
-      <Typography variant="body2" color="textSecondary" style={{ marginTop: '4px' }}>
-        Location：{content.location}
-      </Typography>
-      <Typography variant="body2" color="textSecondary" style={{ marginTop: '4px' }}>
-        Address：{content.detailedAddress}
+      <Typography variant="body2" color="textSecondary" sx={{ marginTop: 1 }}>
+        Address: {content.detailedAddress}
       </Typography>
       {content.price && (
-        <Typography variant="body2" style={{ fontWeight: 'bold', marginTop: '8px', color: '#d32f2f' }}>
-          Price：{content.price}
+        <Typography variant="body2" sx={{ fontWeight: 'bold', marginTop: 2, color: '#d32f2f' }}>
+          Price: {content.price}
         </Typography>
+      )}
+      {/* Displaying the tag as a Chip component at the bottom */}
+      {content.tag && (
+        <Chip
+          label={`Label: ${content.tag}`}
+          variant="outlined"
+          sx={{ marginTop: 2, background: '#f0f0f0', fontWeight: 'bold' }}
+        />
       )}
     </CardContent>
   );
