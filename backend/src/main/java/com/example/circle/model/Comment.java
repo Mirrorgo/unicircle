@@ -1,5 +1,7 @@
 package com.example.circle.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Comment {
@@ -8,20 +10,24 @@ public class Comment {
     private String parentCommentId; // 使用Integer以便允许null值，表示顶级评论
     private String username;
     private String comment;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss.SSS", timezone="UTC")
     private Date createdAt;
+
+    private String userId;
 
     // 无参构造函数
     public Comment() {
     }
 
     // 带所有参数的构造函数
-    public Comment(String commentId, String topicId, String parentCommentId, String username, String comment, Date createdAt) {
+    public Comment(String commentId, String topicId, String parentCommentId, String userId, String username, String comment, Date createdAt, String userId1) {
         this.commentId = commentId;
         this.topicId = topicId;
         this.parentCommentId = parentCommentId;
         this.username = username;
         this.comment = comment;
         this.createdAt = createdAt;
+        this.userId = userId;
     }
 
     // getter和setter方法
@@ -71,5 +77,13 @@ public class Comment {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

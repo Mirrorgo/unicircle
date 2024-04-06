@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/subjects")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class SubjectController {
 
     private final SubjectService subjectService;

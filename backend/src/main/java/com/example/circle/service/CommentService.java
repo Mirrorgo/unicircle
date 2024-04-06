@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface CommentService {
     Result<List<Comment>> getCommentsByTopicId(String topicId);
+
+    Result<Comment> createComment(Comment comment);
 }

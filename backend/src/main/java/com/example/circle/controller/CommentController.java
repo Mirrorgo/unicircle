@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping("/comments")
+@RequestMapping("/subjects/comments")
 public class CommentController {
 
     private final CommentService commentService;
@@ -23,6 +24,12 @@ public class CommentController {
     @GetMapping("/list")
     public ResponseEntity<Result<List<Comment>>> getCommentsByTopicId(@RequestParam String topicId) {
         Result<List<Comment>> result = commentService.getCommentsByTopicId(topicId);
+        return ResponseEntity.ok(result);
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<Result<Comment>> createComment(@RequestBody Comment comment) {
+        Result<Comment> result = commentService.createComment(comment);
         return ResponseEntity.ok(result);
     }
 }

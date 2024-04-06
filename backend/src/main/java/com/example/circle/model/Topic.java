@@ -30,6 +30,10 @@ public class Topic {
         this.updatedAt = updatedAt;
     }
 
+    public Topic() {
+
+    }
+
     // Getter和Setter方法
     public String getTopicId() {
         return topicId;
