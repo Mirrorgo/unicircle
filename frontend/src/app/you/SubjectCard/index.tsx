@@ -6,6 +6,7 @@ import {
   CardContent,
   Typography,
 } from "@mui/material";
+import { width } from "@mui/system";
 import React, { useEffect } from "react";
 
 function SubjectCard({ content }: { content: Subject }) {
@@ -17,7 +18,7 @@ function SubjectCard({ content }: { content: Subject }) {
   return (
     <Card
       sx={{
-        width: 200,
+        width: "calc(50vw - 5px)",
         height: 200,
         boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
         borderRadius: 3,
