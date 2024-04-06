@@ -11,9 +11,7 @@ function Subjects() {
 
   useEffect(() => {
     async function getSubjectList() {
-      const res = await querySubjectList({
-        // dataSetID: dataSetId,
-      });
+      const res = await querySubjectList({});
       const newSubjects: Subject[] = res.data.data;
       setSubjects(newSubjects);
       console.log("length", newSubjects.length);

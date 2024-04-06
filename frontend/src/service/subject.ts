@@ -38,21 +38,15 @@ export interface TopicType {
 }
 
 export async function querySubjectList(params: object) {
-  return axios.get<BaseResponse<Subject[]>>(
-    requestUrl("/subjects/list", true),
-    {
-      params,
-    }
-  );
+  return axios.get<BaseResponse<Subject[]>>(requestUrl("/subjects/list"), {
+    params,
+  });
 }
 
 export async function queryTopicList(params: object) {
-  return axios.get<BaseResponse<Topic[]>>(
-    requestUrl("/subjects/topics/list", true),
-    {
-      params,
-    }
-  );
+  return axios.get<BaseResponse<Topic[]>>(requestUrl("/subjects/topics/list"), {
+    params,
+  });
 }
 
 export async function queryTopic(params: object) {
@@ -66,7 +60,7 @@ export async function queryTopic(params: object) {
 
 export async function queryTypeList(params: object) {
   return axios.get<BaseResponse<TopicType[]>>(
-    requestUrl("/subjects/types/list", true),
+    requestUrl("/subjects/types/list"),
     {
       params,
     }

@@ -23,28 +23,36 @@ function Subject({ params }: { params: { subjectNumber: string } }) {
   const [selectedChip, setSelectedChip] = useState<number | null>(null);
 
   useEffect(() => {
-    async function getTopicsList() {
-      const res = await queryTopicList({
-        subjectNumber: params.subjectNumber,
-        typeId: selectedChip,
-      });
-      const newTopics: Topic[] = res.data.data;
-      setTopics(newTopics);
-    }
-
-    getTopicsList();
-    return () => {};
-  }, [selectedChip, params.subjectNumber]);
-
-  useEffect(() => {
     async function getTypesList() {
       const res = await queryTypeList({ subjectNumber: params.subjectNumber });
+      if (res.data.msg === "Error") {
+        setTopicTypes([]);
+        return;
+      }
       const newTypes: TopicType[] = res.data.data;
+      console.log("types", newTypes);
       setTopicTypes(newTypes);
     }
     getTypesList();
     return () => {};
   }, [params.subjectNumber]);
+
+  useEffect(() => {
+    async function getTopicsList() {
+      const res = await queryTopicList({
+        subjectNumber: params.subjectNumber,
+        typeId: selectedChip != null ? topicTypes[selectedChip].typeId : null,
+      });
+      if (res.data.msg === "Error") {
+        setTopics([]);
+        return;
+      }
+      const newTopics: Topic[] = res.data.data;
+      setTopics(newTopics);
+    }
+    getTopicsList();
+    return () => {};
+  }, [selectedChip, params.subjectNumber]);
 
   const handleSelectTopic = (index: number) => {
     if (selectedChip === index) {

@@ -1,12 +1,5 @@
 import { Subject } from "@/service/subject";
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  Typography,
-} from "@mui/material";
-import { width } from "@mui/system";
+import { Card, CardContent, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 
 function SubjectCard({ content }: { content: Subject }) {
@@ -31,6 +24,8 @@ function SubjectCard({ content }: { content: Subject }) {
           sx={{
             display: "flex",
             justifyContent: "space-between",
+            flexWrap: "wrap",
+            alignItems: "center",
           }}
         >
           <span
@@ -45,9 +40,10 @@ function SubjectCard({ content }: { content: Subject }) {
             style={{
               color: "#f50057",
               fontWeight: "bold",
+              fontSize: "16px",
             }}
           >
-            {`🔥${content.heat}`}
+            {`🔥${content.heat > 999 ? "999+" : content.heat}`}
           </span>
         </Typography>
         <Typography variant="h5" component="div" sx={{ marginBottom: 1 }}>
