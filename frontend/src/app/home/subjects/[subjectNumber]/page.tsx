@@ -34,7 +34,7 @@ function Subject({ params }: { params: { subjectNumber: string } }) {
 
     getTopicsList();
     return () => {};
-  }, [selectedChip]);
+  }, [selectedChip, params.subjectNumber]);
 
   useEffect(() => {
     async function getTypesList() {
@@ -44,7 +44,7 @@ function Subject({ params }: { params: { subjectNumber: string } }) {
     }
     getTypesList();
     return () => {};
-  }, []);
+  }, [params.subjectNumber]);
 
   const handleSelectTopic = (index: number) => {
     if (selectedChip === index) {
